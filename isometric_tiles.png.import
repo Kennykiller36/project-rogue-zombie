@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bijjydsqd471p"
-path="res://.godot/imported/isometric_tiles.png-2524899122eb775049ef1a788e378c03.ctex"
+path="res://.godot/imported/isometric_tiles.png-b8402c06f37bd40a356f08931ab72ec6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilemap/isometric_tiles.png"
-dest_files=["res://.godot/imported/isometric_tiles.png-2524899122eb775049ef1a788e378c03.ctex"]
+source_file="res://isometric_tiles.png"
+dest_files=["res://.godot/imported/isometric_tiles.png-b8402c06f37bd40a356f08931ab72ec6.ctex"]
 
 [params]
 

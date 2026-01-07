@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=4 uid="uid://b0jx2rju82gui"]
 
-[ext_resource type="Texture2D" uid="uid://bijjydsqd471p" path="res://Tilemap/isometric_tiles.png" id="1_d3phv"]
-[ext_resource type="Script" uid="uid://bvbd48pvuv0np" path="res://Tilemap/test_scene/tile_map_layer.gd" id="2_qicnp"]
-[ext_resource type="PackedScene" uid="uid://chrmr726s6myt" path="res://Tilemap/player/player.tscn" id="3_xkp7d"]
+[ext_resource type="Texture2D" uid="uid://bijjydsqd471p" path="res://isometric_tiles.png" id="1_d3phv"]
+[ext_resource type="Script" uid="uid://bvbd48pvuv0np" path="res://test_scene/tile_map_layer.gd" id="2_qicnp"]
+[ext_resource type="PackedScene" uid="uid://chrmr726s6myt" path="res://player/player.tscn" id="3_xkp7d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x1g5t"]
 texture = ExtResource("1_d3phv")
