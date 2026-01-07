@@ -13,7 +13,7 @@ const turn_speed := max_speed / time_to_turn
 var dir_input := Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-	dir_input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	dir_input = Input.get_vector("left", "right", "up", "down")
 	if dir_input != Vector2.ZERO:
 		if !dir_input.normalized().is_equal_approx(velocity.normalized()):
 			velocity += dir_input * turn_speed * delta
