@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bijjydsqd471p"
-path="res://.godot/imported/isometric_tiles.png-b8402c06f37bd40a356f08931ab72ec6.ctex"
+uid="uid://dk8cy5t0xs3nx"
+path="res://.godot/imported/player.png-2d5a5028550270691e8bb93408621f27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://isometric_tiles.png"
-dest_files=["res://.godot/imported/isometric_tiles.png-b8402c06f37bd40a356f08931ab72ec6.ctex"]
+source_file="res://entidades/player/player.png"
+dest_files=["res://.godot/imported/player.png-2d5a5028550270691e8bb93408621f27.ctex"]
 
 [params]
 
