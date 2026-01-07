@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Project Rogue Zombie"
+run/main_scene="uid://b0jx2rju82gui"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
