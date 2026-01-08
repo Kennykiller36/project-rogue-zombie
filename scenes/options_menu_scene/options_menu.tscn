@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://do0wyw2uv0eo8"]
+[gd_scene load_steps=2 format=3 uid="uid://do0wyw2uv0eo8"]
 
 [ext_resource type="Script" uid="uid://c8tv0nn8apjgb" path="res://scenes/options_menu_scene/options_menu.gd" id="1_5mbrk"]
-[ext_resource type="Script" uid="uid://cf6cdkdndb7rt" path="res://scenes/options_menu_scene/voltar_jogo_btn.gd" id="2_2v3r4"]
 
 [node name="OptionsMenuControl" type="Control"]
 process_mode = 4
@@ -21,16 +20,68 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
+
+[node name="Geral" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VoltarMenuBtn" type="Button" parent="TabContainer/Geral"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -15.5
+offset_right = 79.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Voltar para o menu
+"
+
+[node name="VoltarJogoBtn" type="Button" parent="TabContainer/Geral"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = 32.5
+offset_right = 79.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Voltar para o jogo
+"
+
+[node name="VoltarParaHubBtn" type="Button" parent="TabContainer/Geral"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = 80.5
+offset_right = 79.0
+offset_bottom = 111.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Voltar para o hub"
 
 [node name="Video" type="TabBar" parent="TabContainer"]
 layout_mode = 2
-metadata/_tab_index = 0
+metadata/_tab_index = 1
 
 [node name="Audio" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 1
+metadata/_tab_index = 2
 
 [node name="AudioGeralTxt" type="TextEdit" parent="TabContainer/Audio"]
 layout_mode = 1
@@ -121,30 +172,16 @@ value = 1.0
 [node name="Controles" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="HUD" type="TabBar" parent="TabContainer"]
-visible = false
-layout_mode = 2
 metadata/_tab_index = 3
 
-[node name="VoltarMenuBtn" type="Button" parent="."]
-layout_mode = 0
-offset_right = 127.0
-offset_bottom = 31.0
-text = "Voltar para o menu
-"
+[node name="Creditos" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
 
-[node name="VoltarJogoBtn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 994.0
-offset_right = 1152.0
-offset_bottom = 31.0
-text = "Voltar para o jogo
-"
-script = ExtResource("2_2v3r4")
-
+[connection signal="pressed" from="TabContainer/Geral/VoltarMenuBtn" to="." method="_on_voltar_menu_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Geral/VoltarJogoBtn" to="." method="_on_voltar_jogo_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Geral/VoltarParaHubBtn" to="." method="_on_voltar_hub_btn_pressed"]
 [connection signal="value_changed" from="TabContainer/Audio/AudioGeralSlider" to="." method="_on_audio_geral_slider_value_changed"]
 [connection signal="value_changed" from="TabContainer/Audio/AudioSfxSlider" to="." method="_on_audio_sfx_slider_value_changed"]
 [connection signal="value_changed" from="TabContainer/Audio/AudioMusicaSlider" to="." method="_on_audio_musica_slider_value_changed"]
-[connection signal="pressed" from="VoltarMenuBtn" to="." method="_on_voltar_menu_btn_pressed"]
