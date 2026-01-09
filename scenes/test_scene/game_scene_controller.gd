@@ -1,5 +1,9 @@
 extends Node2D
 
+func _ready():
+	# Garantir que o jogo não está pausado quando a cena é carregada
+	get_tree().paused = false
+
 func _input(event):
 	if event.is_action_pressed("pause"):
 		get_tree().paused = true

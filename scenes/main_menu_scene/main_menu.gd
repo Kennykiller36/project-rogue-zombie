@@ -1,5 +1,9 @@
 extends Control
 
+func _ready():
+	# Garantir que o jogo não está pausado quando o menu é carregado
+	get_tree().paused = false
+
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://scenes/test_scene/test_scene.tscn")
 

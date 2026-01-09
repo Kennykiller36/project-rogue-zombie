@@ -11,6 +11,7 @@ func _update_button_visibility():
 
 func _on_voltar_menu_btn_pressed():
 	opened_from_gameplay = false  
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu_scene/main_menu.tscn")
 
 func _on_voltar_jogo_btn_pressed():
