@@ -60,4 +60,4 @@ position = Vector2(5.9999995, 2.9999998)
 scale = Vector2(42.758404, -89.53091)
 texture = SubResource("GradientTexture2D_brqnf")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("5_wgdak")]
+[node name="CanvasHud" parent="." instance=ExtResource("5_wgdak")]
