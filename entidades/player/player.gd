@@ -1,5 +1,9 @@
 extends CharacterBody2D
+class_name Player
 
+##Hud
+@onready var barra_hp=$"../CanvasLayer/BarraDeHp" 
+var saude
 ##Movimento player
 const max_speed := 40.0
 const min_speed := 8.0
@@ -11,6 +15,14 @@ const friction := max_speed / time_to_stop
 const turn_speed := max_speed / time_to_turn
 var dir_input := Vector2.ZERO
 
+func _ready():
+	saude = 60
+	if barra_hp:
+		barra_hp.init_health(saude)
+	else:
+		print("Warning: Player: BarraDeHp node not found at path ../CanvasLayer/BarraDeHp")
+
+##Movimento player 2
 func _physics_process(delta: float) -> void:
 	dir_input = Input.get_vector("left", "right", "up", "down")
 	if dir_input != Vector2.ZERO:
@@ -25,4 +37,24 @@ func _physics_process(delta: float) -> void:
 		if velocity.length() < min_speed:
 			velocity = Vector2.ZERO
 	move_and_slide()
-	
+
+##Chamadas para HP
+func aumentar_vida():
+	if saude >= 100:
+		return
+	saude += 10
+	if barra_hp:
+		barra_hp.hp = saude
+
+func diminuir_vida():
+	if saude <= 0:
+		return
+	saude -= 10
+	if barra_hp:
+		barra_hp.hp = saude
+
+func _input(event):
+	if event.is_action_pressed("addHealth"):
+		aumentar_vida()
+	if event.is_action_pressed("loseHealth"):
+		diminuir_vida()

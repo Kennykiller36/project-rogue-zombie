@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://87bq5vkjlxve"]
+
+[ext_resource type="Script" uid="uid://bj01wxlr5ss4f" path="res://scenes/HUD/barra_de_hp.gd" id="1_w857b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qbw03"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc30i"]
+bg_color = Color(0.6862745, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07nbq"]
+bg_color = Color(0.13682574, 0.13682574, 0.13682568, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.27450982)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nggpd"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="BarraDeHp" type="ProgressBar"]
+z_index = 1
+offset_top = 18.0
+offset_right = 240.0
+offset_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxEmpty_qbw03")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vc30i")
+value = 100.0
+show_percentage = false
+script = ExtResource("1_w857b")
+
+[node name="BarraDeDano" type="ProgressBar" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_07nbq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nggpd")
+value = 100.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="LabelBarraHp" type="Label" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = -11.0
+offset_right = 298.0
+offset_bottom = 12.0
+size_flags_horizontal = 2
+text = "Vida"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

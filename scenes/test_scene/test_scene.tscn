@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://b0jx2rju82gui"]
+[gd_scene load_steps=10 format=4 uid="uid://b0jx2rju82gui"]
 
 [ext_resource type="Texture2D" uid="uid://bijjydsqd471p" path="res://sprites/isometric_tiles.png" id="1_d3phv"]
 [ext_resource type="Script" uid="uid://q7y4enmoao35" path="res://scenes/test_scene/game_scene_controller.gd" id="1_l4ihe"]
 [ext_resource type="Script" uid="uid://bvbd48pvuv0np" path="res://scenes/test_scene/tile_map_layer.gd" id="2_qicnp"]
 [ext_resource type="PackedScene" uid="uid://chrmr726s6myt" path="res://entidades/player/player.tscn" id="3_xkp7d"]
+[ext_resource type="PackedScene" uid="uid://87bq5vkjlxve" path="res://scenes/HUD/barra_de_hp.tscn" id="5_wgdak"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x1g5t"]
 texture = ExtResource("1_d3phv")
@@ -48,7 +49,6 @@ script = ExtResource("2_qicnp")
 
 [node name="Player" parent="." instance=ExtResource("3_xkp7d")]
 position = Vector2(17, -26)
-hp_total = 100
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -63,6 +63,7 @@ texture = SubResource("GradientTexture2D_brqnf")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BarraDeHabilidade" type="TextureProgressBar" parent="CanvasLayer"]
+visible = false
 anchors_preset = -1
 anchor_left = 0.4826389
 anchor_top = 0.9382716
@@ -75,14 +76,17 @@ fill_mode = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
 offset_right = 412.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="BarraDeHp" type="ProgressBar" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 100.0
+max_value = 10.0
+value = 5.0
 
 [node name="LabelBarraHp" type="Label" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
@@ -90,3 +94,5 @@ size_flags_horizontal = 2
 text = "Vida"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BarraDeHp" parent="CanvasLayer" instance=ExtResource("5_wgdak")]
