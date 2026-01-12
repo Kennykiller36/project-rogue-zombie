@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bijjydsqd471p"
-path="res://.godot/imported/isometric_tiles.png-5b7cad58eeb8102a9ddcd365af67d7ac.ctex"
+uid="uid://bhgf7a3jygugn"
+path="res://.godot/imported/habilidade_bar_under.png-744c1e4b97e8757565f1dfc2ddb928e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/isometric_tiles.png"
-dest_files=["res://.godot/imported/isometric_tiles.png-5b7cad58eeb8102a9ddcd365af67d7ac.ctex"]
+source_file="res://sprites/hud/habilidade_bar_under.png"
+dest_files=["res://.godot/imported/habilidade_bar_under.png-744c1e4b97e8757565f1dfc2ddb928e8.ctex"]
 
 [params]
 

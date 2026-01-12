@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://b0jx2rju82gui"]
 
-[ext_resource type="Texture2D" uid="uid://bijjydsqd471p" path="res://sprites/isometric_tiles.png" id="1_d3phv"]
+[ext_resource type="Texture2D" uid="uid://bijjydsqd471p" path="res://sprites/tiles/isometric_tiles.png" id="1_d3phv"]
 [ext_resource type="Script" uid="uid://q7y4enmoao35" path="res://scenes/test_scene/game_scene_controller.gd" id="1_l4ihe"]
 [ext_resource type="Script" uid="uid://bvbd48pvuv0np" path="res://scenes/test_scene/tile_map_layer.gd" id="2_qicnp"]
 [ext_resource type="PackedScene" uid="uid://chrmr726s6myt" path="res://entidades/player/player.tscn" id="3_xkp7d"]
