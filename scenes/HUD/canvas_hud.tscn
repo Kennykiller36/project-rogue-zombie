@@ -1,27 +1,30 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxt56vn25i6xo"]
 
 [ext_resource type="PackedScene" uid="uid://87bq5vkjlxve" path="res://scenes/HUD/barra_de_hp.tscn" id="1_1bv0e"]
-[ext_resource type="Texture2D" uid="uid://bhgf7a3jygugn" path="res://sprites/hud/habilidade_bar_under.png" id="2_cap0m"]
-[ext_resource type="Texture2D" uid="uid://c5vgs1as67tva" path="res://sprites/hud/habilidade_bar_over.png" id="3_xroia"]
+[ext_resource type="Texture2D" uid="uid://femicxaauumb" path="res://sprites/hud/progress_bar.png" id="2_fd8di"]
+[ext_resource type="Script" uid="uid://dn2ijsl87avf7" path="res://scenes/HUD/barra_de_habilidade.gd" id="3_cap0m"]
 
 [node name="CanvasHud" type="CanvasLayer"]
 
 [node name="BarraDeHp" parent="." instance=ExtResource("1_1bv0e")]
 
 [node name="BarraDeHabilidade" type="TextureProgressBar" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -75.99997
-offset_top = -72.99994
-offset_right = 183.0
-offset_bottom = 186.00006
+anchors_preset = -1
+anchor_left = 0.4340278
+anchor_top = 0.8873458
+anchor_right = 0.49617317
+anchor_bottom = 0.99782646
+offset_left = 3.0517578e-05
+offset_right = 187.40851
+offset_bottom = 187.40851
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.27641508, 0.27641508)
-value = 100.0
+value = 33.0
 fill_mode = 4
-texture_under = ExtResource("2_cap0m")
-texture_progress = ExtResource("3_xroia")
+texture_under = ExtResource("2_fd8di")
+texture_progress = ExtResource("2_fd8di")
+tint_under = Color(0, 0, 0, 0.5137255)
+tint_progress = Color(0.6423496, 0.500957, 0, 1)
+script = ExtResource("3_cap0m")
+metadata/_edit_use_anchors_ = true

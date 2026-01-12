@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhgf7a3jygugn"
-path="res://.godot/imported/habilidade_bar_under.png-744c1e4b97e8757565f1dfc2ddb928e8.ctex"
+uid="uid://femicxaauumb"
+path="res://.godot/imported/progress_bar.png-953dae599dd581d137a7a55226418f5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/hud/habilidade_bar_under.png"
-dest_files=["res://.godot/imported/habilidade_bar_under.png-744c1e4b97e8757565f1dfc2ddb928e8.ctex"]
+source_file="res://sprites/hud/progress_bar.png"
+dest_files=["res://.godot/imported/progress_bar.png-953dae599dd581d137a7a55226418f5d.ctex"]
 
 [params]
 
