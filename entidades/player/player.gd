@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Player
 
 ##Hud
-@onready var barra_hp=$"../CanvasLayer/BarraDeHp" 
-@onready var barra_habilidade=$"../CanvasLayer/BarraDeHabilidade" 
+@onready var barra_hp=$"CanvasHud/BarraDeHp"
+@onready var barra_habilidade=$"CanvasHud/BarraDeHabilidade"
 var saude
 var carga_habilidade
 ##Movimento player

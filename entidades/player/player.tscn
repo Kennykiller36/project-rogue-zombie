@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://chrmr726s6myt"]
+[gd_scene load_steps=5 format=3 uid="uid://chrmr726s6myt"]
 
 [ext_resource type="Texture2D" uid="uid://dk8cy5t0xs3nx" path="res://entidades/player/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c5f7yjum14e4p" path="res://entidades/player/player.gd" id="1_rkbax"]
+[ext_resource type="PackedScene" uid="uid://cxt56vn25i6xo" path="res://scenes/HUD/canvas_hud.tscn" id="5_3euvj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 radius = 2.0
@@ -18,3 +19,5 @@ shape = SubResource("CircleShape2D_kqu6x")
 texture_filter = 1
 position = Vector2(0, -6)
 texture = ExtResource("1_oul6g")
+
+[node name="CanvasHud" parent="." instance=ExtResource("5_3euvj")]
