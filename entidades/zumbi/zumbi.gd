@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var dano:int
-var saude
+@export var saude:int
 
 func diminuir_vida(dano: int):
 	if saude <= 0:
@@ -16,7 +16,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
