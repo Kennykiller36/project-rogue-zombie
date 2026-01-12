@@ -1,6 +1,12 @@
 extends CharacterBody2D
 
 @export var dano:int
+var saude
+
+func diminuir_vida(dano: int):
+	if saude <= 0:
+		return
+	saude -= dano
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
