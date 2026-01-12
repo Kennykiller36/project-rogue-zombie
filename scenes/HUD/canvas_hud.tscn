@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxt56vn25i6xo"]
+
+[ext_resource type="PackedScene" uid="uid://87bq5vkjlxve" path="res://scenes/HUD/barra_de_hp.tscn" id="1_1bv0e"]
+
+[node name="CanvasHud" type="CanvasLayer"]
+
+[node name="BarraDeHp" parent="." instance=ExtResource("1_1bv0e")]
+
+[node name="BarraDeHabilidade" type="TextureProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 0.4826389
+anchor_top = 0.9382716
+anchor_right = 0.5173611
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 33.0
+fill_mode = 4
+metadata/_edit_use_anchors_ = true
