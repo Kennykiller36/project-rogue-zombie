@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://8hjx4iv8ysv0"]
+
+[ext_resource type="Script" uid="uid://df2d8vdol80pl" path="res://entidades/zumbi/zumbi.gd" id="1_rvapf"]
+[ext_resource type="Texture2D" uid="uid://dk8cy5t0xs3nx" path="res://entidades/player/player.png" id="2_p3pvq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2but"]
+size = Vector2(12, 14)
+
+[node name="Zumbi" type="CharacterBody2D"]
+z_index = 2
+motion_mode = 1
+script = ExtResource("1_rvapf")
+dano = 10
+
+[node name="MovimentoCollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kqu6x")
+
+[node name="Player" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -6)
+texture = ExtResource("2_p3pvq")
+
+[node name="Area2D" type="Area2D" parent="." groups=["inimigo"]]
+
+[node name="CombateCollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_f2but")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
