@@ -89,14 +89,46 @@ func _ready():
 	##Parte da tab geral 2
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_update_button_visibility()
-	
+
 	##Parte da tab audio 2
 	audio_bus_master= AudioServer.get_bus_index("Master")
 	audio_bus_sfx= AudioServer.get_bus_index("Sfx")
 	audio_bus_musica= AudioServer.get_bus_index("Musica")
-	
+
 	##Parte da tab video 2
 	janela_button.item_selected.connect(modo_janela_selecionado)
 	adicionar_items_modo_janela()
 	resolucao_button.item_selected.connect(resolucao_selecionada)
 	adicionar_items_resolucao()
+
+	# Load saved video settings
+	var video_settings = ConfigFileHandler.load_video_settings()
+	resolucao_button.selected = video_settings["resolution_index"]
+	janela_button.selected = video_settings["window_mode_index"]
+	modo_janela_selecionado(video_settings["window_mode_index"])
+	resolucao_selecionada(video_settings["resolution_index"])
+
+	# Load saved audio settings
+	var audio_settings = ConfigFileHandler.load_audio_settings()
+	$TabContainer/Audio/VBoxContainer/AudioGeralSlider.value = audio_settings["master_volume"]
+	$TabContainer/Audio/VBoxContainer/AudioSfxSlider.value = audio_settings["sfx_volume"]
+	$TabContainer/Audio/VBoxContainer/AudioMusicaSlider.value = audio_settings["music_volume"]
+
+
+func _on_resolucao_option_btn_item_selected(index: int) -> void:
+	ConfigFileHandler.save_video_setting("resolution_index", index)
+
+func _on_janela_option_btn_item_selected(index: int) -> void:
+	ConfigFileHandler.save_video_setting("window_mode_index", index)
+
+func _on_audio_geral_slider_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		ConfigFileHandler.save_audio_settings("master_volume", $TabContainer/Audio/VBoxContainer/AudioGeralSlider.value)
+
+func _on_audio_sfx_slider_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		ConfigFileHandler.save_audio_settings("sfx_volume",$TabContainer/Audio/VBoxContainer/AudioSfxSlider.value)
+
+func _on_audio_musica_slider_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		ConfigFileHandler.save_audio_settings("music_volume",$TabContainer/Audio/VBoxContainer/AudioMusicaSlider.value)

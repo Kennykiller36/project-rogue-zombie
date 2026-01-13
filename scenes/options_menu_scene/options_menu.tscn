@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://do0wyw2uv0eo8"]
+[gd_scene load_steps=4 format=3 uid="uid://do0wyw2uv0eo8"]
 
 [ext_resource type="Script" uid="uid://c8tv0nn8apjgb" path="res://scenes/options_menu_scene/options_menu.gd" id="1_5mbrk"]
 [ext_resource type="Script" uid="uid://dtr1sagv0h0j7" path="res://scenes/options_menu_scene/input_map_btn.gd" id="2_2v3r4"]
+[ext_resource type="Script" uid="uid://d35cv1yeojkop" path="res://scenes/options_menu_scene/config_file_handler.gd" id="3_8avrp"]
 
 [node name="OptionsMenuControl" type="Control"]
 process_mode = 4
@@ -303,9 +304,17 @@ Agradecimentos especiais:
 Versão: 1.0[/center]"
 scroll_following = true
 
+[node name="ConfigFileManager" type="Node" parent="."]
+script = ExtResource("3_8avrp")
+
 [connection signal="pressed" from="TabContainer/Geral/VBoxContainer/VoltarMenuBtn" to="." method="_on_voltar_menu_btn_pressed"]
 [connection signal="pressed" from="TabContainer/Geral/VBoxContainer/VoltarJogoBtn" to="." method="_on_voltar_jogo_btn_pressed"]
 [connection signal="pressed" from="TabContainer/Geral/VBoxContainer/VoltarParaHubBtn" to="." method="_on_voltar_hub_btn_pressed"]
+[connection signal="item_selected" from="TabContainer/Video/VBoxContainerVideoBtn/ResolucaoOptionBtn" to="." method="_on_resolucao_option_btn_item_selected"]
+[connection signal="item_selected" from="TabContainer/Video/VBoxContainerVideoBtn/JanelaOptionBtn" to="." method="_on_janela_option_btn_item_selected"]
+[connection signal="drag_ended" from="TabContainer/Audio/VBoxContainer/AudioGeralSlider" to="." method="_on_audio_geral_slider_drag_ended"]
 [connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/AudioGeralSlider" to="." method="_on_audio_geral_slider_value_changed"]
+[connection signal="drag_ended" from="TabContainer/Audio/VBoxContainer/AudioSfxSlider" to="." method="_on_audio_sfx_slider_drag_ended"]
 [connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/AudioSfxSlider" to="." method="_on_audio_sfx_slider_value_changed"]
+[connection signal="drag_ended" from="TabContainer/Audio/VBoxContainer/AudioMusicaSlider" to="." method="_on_audio_musica_slider_drag_ended"]
 [connection signal="value_changed" from="TabContainer/Audio/VBoxContainer/AudioMusicaSlider" to="." method="_on_audio_musica_slider_value_changed"]

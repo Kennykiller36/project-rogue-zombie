@@ -17,7 +17,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Settings="res://globals/settings.gd"
+ConfigFileHandler="*res://scenes/options_menu_scene/config_file_handler.gd"
+
+[display]
+
+window/size/mode=3
 
 [input]
 
