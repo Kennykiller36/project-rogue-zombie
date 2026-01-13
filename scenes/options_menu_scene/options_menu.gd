@@ -29,43 +29,13 @@ func _on_voltar_hub_btn_pressed():
 @onready var resolucao_button=$TabContainer/Video/VBoxContainerVideoBtn/ResolucaoOptionBtn as OptionButton
 
 
-const MODO_JANELA_ARRAY: Array[String]=[
-	"Tela cheia", "Janela", "Janela sem borda", "Tela cheia sem borda"
-]
-
-func modo_janela_selecionado(index:int)-> void:
-	match index:
-		0:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
-		1:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
-
-		2:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-
-		3:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-
 func adicionar_items_modo_janela()-> void:
-	for i in MODO_JANELA_ARRAY:
+	for i in ConfigFileHandler.MODO_JANELA_ARRAY:
 		janela_button.add_item(i)
 
-const DICIONARIO_RESOLUCAO:Dictionary={
-	"1152 x 648": Vector2i(1152,648),
-	"1280 x 720": Vector2i(1280,720),
-	"1920 x 1080": Vector2i(1920,1080),
-	"1920 x 1200": Vector2i(1920,1200)
-}
 func adicionar_items_resolucao()-> void:
-	for j in DICIONARIO_RESOLUCAO:
+	for j in ConfigFileHandler.DICIONARIO_RESOLUCAO:
 		resolucao_button.add_item(j)
-		
-func resolucao_selecionada(index:int)-> void:
-	DisplayServer.window_set_size(DICIONARIO_RESOLUCAO.values()[index])
 	
 ##Parte da Tab de audio
 var audio_bus_master
@@ -96,17 +66,13 @@ func _ready():
 	audio_bus_musica= AudioServer.get_bus_index("Musica")
 
 	##Parte da tab video 2
-	janela_button.item_selected.connect(modo_janela_selecionado)
 	adicionar_items_modo_janela()
-	resolucao_button.item_selected.connect(resolucao_selecionada)
 	adicionar_items_resolucao()
 
 	# Load saved video settings
 	var video_settings = ConfigFileHandler.load_video_settings()
 	resolucao_button.selected = video_settings["resolution_index"]
 	janela_button.selected = video_settings["window_mode_index"]
-	modo_janela_selecionado(video_settings["window_mode_index"])
-	resolucao_selecionada(video_settings["resolution_index"])
 
 	# Load saved audio settings
 	var audio_settings = ConfigFileHandler.load_audio_settings()
@@ -117,18 +83,26 @@ func _ready():
 
 func _on_resolucao_option_btn_item_selected(index: int) -> void:
 	ConfigFileHandler.save_video_setting("resolution_index", index)
+	ConfigFileHandler.apply_video_settings()
+
 
 func _on_janela_option_btn_item_selected(index: int) -> void:
 	ConfigFileHandler.save_video_setting("window_mode_index", index)
+	ConfigFileHandler.apply_video_settings()
+
 
 func _on_audio_geral_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		ConfigFileHandler.save_audio_settings("master_volume", $TabContainer/Audio/VBoxContainer/AudioGeralSlider.value)
+		ConfigFileHandler.apply_audio_settings()
+
 
 func _on_audio_sfx_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		ConfigFileHandler.save_audio_settings("sfx_volume",$TabContainer/Audio/VBoxContainer/AudioSfxSlider.value)
+		ConfigFileHandler.apply_audio_settings()
 
 func _on_audio_musica_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		ConfigFileHandler.save_audio_settings("music_volume",$TabContainer/Audio/VBoxContainer/AudioMusicaSlider.value)
+		ConfigFileHandler.apply_audio_settings()
