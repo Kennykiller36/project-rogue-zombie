@@ -1,48 +1,60 @@
 extends Button
 class_name InputMapBtn
 
-@export var action:String
-@export var action_event_index: int=0
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	toggle_mode=true
-	toggled.connect(_toggled)
-	_toggled(false)
+@export var action: String
+@export var action_event_index := 0
 
-func _toggled(toggled_on: bool) -> void:
-	if !action or !InputMap.has_action(action):
-		return
-	if toggled_on:
-		text= "Awaiting input"
-		return
-	if action_event_index>=InputMap.action_get_events(action).size():
-		text= "Unassigned"
-		return
-	var input= InputMap.action_get_events(action)[action_event_index]
-	if input is InputEventKey:
-		if input.physical_keycode !=0:
-			text=OS.get_keycode_string(input.physical_keycode)
-		else:
-			text=OS.get_keycode_string(input.keycode)
+func _ready():
+	toggle_mode = true
+	toggled.connect(_on_toggled)
+	_update_text()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if !InputMap.has_action(action) or !button_pressed:
+func _on_toggled(pressed: bool):
+	if pressed:
+		text = "Awaiting input"
+	else:
+		_update_text()
+
+func _update_text():
+	if not action or not InputMap.has_action(action):
+		text = "Invalid"
 		return
-	if event.is_pressed() and (event is InputEventKey):
-		var action_events_list=InputMap.action_get_events(action)
-		if action_event_index<action_events_list.size():
-			InputMap.action_erase_event(action, action_events_list[action_event_index])
-		InputMap.action_add_event(action,event)
-		action_event_index=InputMap.action_get_events(action).size()-1
-		set_pressed(false)
-		release_focus()
-		
-func _input(event: InputEvent) -> void:
-	# Only untoggle if clicking outside the button (mouse button released)
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
-		# Don't untoggle if the mouse is over this button
+
+	var events := InputMap.action_get_events(action)
+	if action_event_index >= events.size():
+		text = "Unassigned"
+		return
+
+	var ev := events[action_event_index]
+	if ev is InputEventKey:
+		text = OS.get_keycode_string(ev.physical_keycode)
+
+func _unhandled_input(event: InputEvent):
+	if not button_pressed:
+		return
+	if not (event is InputEventKey):
+		return
+	if not event.pressed:
+		return
+
+	# Enforce single key per action
+	InputMap.action_erase_events(action)
+
+	var new_event := InputEventKey.new()
+	new_event.physical_keycode = event.physical_keycode
+	InputMap.action_add_event(action, new_event)
+
+	ConfigFileHandler.save_input_map()
+
+	set_pressed(false)
+	release_focus()
+	_update_text()
+
+func _input(event: InputEvent):
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and not event.pressed:
 		if not get_global_rect().has_point(event.position):
 			set_pressed(false)
 			release_focus()
-
-		
+			_update_text()

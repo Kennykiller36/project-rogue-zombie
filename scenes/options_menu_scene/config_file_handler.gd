@@ -3,6 +3,15 @@ extends Node
 var config=ConfigFile.new()
 const SETTINGS_FILE_PATH="user://settings.ini"
 
+
+const GAME_ACTIONS := [
+	"up",
+	"down",
+	"left",
+	"right"
+]
+
+
 const DICIONARIO_RESOLUCAO:Dictionary={
 	"1152 x 648": Vector2i(1152,648),
 	"1280 x 720": Vector2i(1280,720),
@@ -17,10 +26,10 @@ const MODO_JANELA_ARRAY: Array[String]=[
 
 func _ready():
 	if !FileAccess.file_exists(SETTINGS_FILE_PATH):
-		config.set_value("keybiding", "up", "W")
-		config.set_value("keybiding", "down", "S")
-		config.set_value("keybiding", "left", "A")
-		config.set_value("keybiding", "right", "D")
+		config.set_value("keybinding", "up", "W")
+		config.set_value("keybinding", "down", "S")
+		config.set_value("keybinding", "left", "A")
+		config.set_value("keybinding", "right", "D")
 
 		config.set_value("video", "resolution_index", 0)
 		config.set_value("video", "window_mode_index", 0)
@@ -36,6 +45,7 @@ func _ready():
 	# Apply settings on startup
 	apply_video_settings()
 	apply_audio_settings()
+	apply_input_map()
 
 func save_video_setting(key: String, value):
 	config.set_value("video", key, value)
@@ -116,3 +126,28 @@ func apply_audio_settings():
 		set_audio_volume("Sfx", audio_settings["sfx_volume"])
 	if audio_settings.has("music_volume"):
 		set_audio_volume("Musica", audio_settings["music_volume"])
+
+func save_input_map():
+	for action in GAME_ACTIONS:
+		if not InputMap.has_action(action):
+			continue
+
+		var events := InputMap.action_get_events(action)
+		if events.size() > 0 and events[0] is InputEventKey:
+			config.set_value("keybinding", action, events[0].physical_keycode)
+
+	config.save(SETTINGS_FILE_PATH)
+
+func apply_input_map():
+	if not config.has_section("keybinding"):
+		return
+
+	for action in config.get_section_keys("keybinding"):
+		if not InputMap.has_action(action):
+			continue
+
+		InputMap.action_erase_events(action)
+
+		var ev := InputEventKey.new()
+		ev.physical_keycode = int(config.get_value("keybinding", action))
+		InputMap.action_add_event(action, ev)
