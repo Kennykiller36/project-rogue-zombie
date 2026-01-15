@@ -11,7 +11,10 @@ size = Vector2(12, 14)
 
 [node name="Zumbi" type="CharacterBody2D"]
 z_index = 2
+collision_layer = 2
+collision_mask = 3
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_rvapf")
 dano = 10
 
@@ -29,4 +32,12 @@ texture = ExtResource("2_p3pvq")
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_f2but")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

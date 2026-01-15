@@ -1,10 +1,16 @@
-[gd_scene load_steps=10 format=4 uid="uid://b0jx2rju82gui"]
+[gd_scene load_steps=11 format=4 uid="uid://b0jx2rju82gui"]
 
 [ext_resource type="Texture2D" uid="uid://bijjydsqd471p" path="res://sprites/tiles/isometric_tiles.png" id="1_d3phv"]
 [ext_resource type="Script" uid="uid://q7y4enmoao35" path="res://scenes/test_scene/game_scene_controller.gd" id="1_l4ihe"]
 [ext_resource type="Script" uid="uid://bvbd48pvuv0np" path="res://scenes/test_scene/tile_map_layer.gd" id="2_qicnp"]
 [ext_resource type="PackedScene" uid="uid://chrmr726s6myt" path="res://entidades/player/player.tscn" id="3_xkp7d"]
 [ext_resource type="PackedScene" uid="uid://8hjx4iv8ysv0" path="res://entidades/zumbi/zumbi.tscn" id="6_doi4a"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_wgdak"]
+vertices = PackedVector2Array(8, 0, 0, 4, -8, 0, 0, -4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, -4, -8, 0, 0, 4, 8, 0)])
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x1g5t"]
 texture = ExtResource("1_d3phv")
@@ -13,6 +19,7 @@ texture = ExtResource("1_d3phv")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -4, -8, 0, 0, 4, 8, 0)
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -4)
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_wgdak")
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, -4)
 2:0/0/z_index = 1
@@ -24,6 +31,7 @@ texture = ExtResource("1_d3phv")
 tile_shape = 1
 tile_size = Vector2i(16, 8)
 physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_x1g5t")
 
 [sub_resource type="Gradient" id="Gradient_vbw75"]
@@ -43,7 +51,7 @@ script = ExtResource("1_l4ihe")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 texture_filter = 1
-tile_map_data = PackedByteArray("AAD+/wEAAAABAAAAAAD+/wIAAAABAAAAAAD+/wMAAAABAAAAAAD//wQAAAABAAAAAAD//wUAAAABAAAAAAAAAAUAAAABAAAAAAAAAAQAAAABAAAAAAAAAAMAAAABAAAAAAAAAAIAAAABAAAAAAAAAAEAAAABAAAAAAABAAAAAAABAAAAAAAAAP//AAABAAAAAAAAAP7/AAABAAAAAAD///3/AAABAAAAAAD///7/AAABAAAAAAD+////AAABAAAAAAD//wAAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD//wEAAAABAAAAAAAAAAAAAAABAAAAAAD/////AAABAAAAAAD+//v/AAABAAAAAAD///r/AAABAAAAAAD///n/AAABAAAAAAAAAPr/AAABAAAAAAAAAPv/AAABAAAAAAABAPz/AAABAAAAAAABAPr/AAABAAAAAAAAAPn/AAABAAAAAAAAAPj/AAABAAAAAAD///f/AAABAAAAAAD///j/AAABAAAAAAD+//n/AAABAAAAAAD+//j/AAABAAAAAAD9//n/AAABAAAAAAD9//r/AAABAAAAAAD9//v/AAABAAAAAAD+//r/AAABAAAAAAD9//z/AAABAAAAAAD8//v/AAABAAAAAAD9//j/AAABAAAAAAD9//f/AAABAAAAAAD+//f/AAABAAAAAAD///b/AAABAAAAAAAAAPb/AAABAAAAAAAAAPf/AAABAAAAAAABAPj/AAABAAAAAAABAPn/AAABAAAAAAABAPv/AAABAAAAAAACAPz/AAABAAAAAAABAP3/AAABAAAAAAACAP7/AAABAAAAAAACAP//AAABAAAAAAADAP//AAABAAAAAAADAP7/AAABAAAAAAACAP3/AAABAAAAAAADAPz/AAABAAAAAAACAPv/AAABAAAAAAACAPr/AAABAAAAAAACAPn/AAABAAAAAAACAPj/AAABAAAAAAABAPf/AAABAAAAAAABAPb/AAABAAAAAAAAAPX/AAABAAAAAAD+//X/AAAAAAAAAAD///T/AAAAAAAAAAAAAPz/AAACAAAAAAACAPf/AAAAAAAAAAADAPr/AAABAAAAAAAJAMb/AAAAAAAAAAAJAMX/AAAAAAAAAAAKAMb/AAAAAAAAAAD+//b/AAAAAAAAAAACAPb/AAAAAAAAAAD8//f/AAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9//b/AAABAAAAAAD9//j/AAABAAAAAAD9//f/AAABAAAAAAD+//b/AAABAAAAAAD+//T/AAABAAAAAAD9//T/AAABAAAAAAD9//X/AAABAAAAAAD+//X/AAABAAAAAAD+//P/AAABAAAAAAD///T/AAABAAAAAAD9//P/AAABAAAAAAD+//L/AAABAAAAAAD+//H/AAABAAAAAAD///L/AAABAAAAAAD///P/AAABAAAAAAAAAPT/AAABAAAAAAD///X/AAABAAAAAAD+//f/AAABAAAAAAD///f/AAABAAAAAAD///b/AAABAAAAAAD9//n/AAABAAAAAAD+//j/AAABAAAAAAD+//v/AAABAAAAAAD9//v/AAABAAAAAAD+//r/AAABAAAAAAD+//n/AAABAAAAAAD///j/AAABAAAAAAD///r/AAABAAAAAAD///n/AAABAAAAAAAAAPj/AAABAAAAAAAAAPb/AAABAAAAAAAAAPX/AAABAAAAAAABAPb/AAABAAAAAAAAAPf/AAABAAAAAAABAPf/AAABAAAAAAABAPj/AAABAAAAAAAAAPr/AAABAAAAAAAAAPn/AAABAAAAAAD///v/AAABAAAAAAAAAPv/AAABAAAAAAABAPr/AAABAAAAAAACAPj/AAABAAAAAAABAPn/AAABAAAAAAACAPr/AAABAAAAAAACAPz/AAABAAAAAAABAPv/AAABAAAAAAACAPn/AAABAAAAAAACAPv/AAABAAAAAAABAPz/AAABAAAAAAAAAPz/AAABAAAAAAD///z/AAABAAAAAAD+//z/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_vbw75")
 script = ExtResource("2_qicnp")
 
@@ -60,5 +68,7 @@ position = Vector2(5.9999995, 2.9999998)
 scale = Vector2(42.758404, -89.53091)
 texture = SubResource("GradientTexture2D_brqnf")
 
-[node name="Zumbi" parent="." instance=ExtResource("6_doi4a")]
+[node name="Zumbi" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_doi4a")]
 position = Vector2(-20, -24)
+saude = 100
+player = NodePath("../Player")
