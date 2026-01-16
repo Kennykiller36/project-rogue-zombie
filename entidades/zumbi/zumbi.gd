@@ -9,7 +9,7 @@ const speed=20
 ##Vida e dano do inimigo
 func diminuir_vida(dano: int):
 	if saude <= 0:
-		return
+		queue_free()
 	saude -= dano
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
