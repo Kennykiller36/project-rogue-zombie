@@ -102,8 +102,17 @@ func apply_window_mode(index: int):
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 
 func apply_resolution(index: int):
-	if index < DICIONARIO_RESOLUCAO.values().size():
-		DisplayServer.window_set_size(DICIONARIO_RESOLUCAO.values()[index])
+	if index >= 0 and index < DICIONARIO_RESOLUCAO.values().size():
+		var resolution = DICIONARIO_RESOLUCAO.values()[index]
+		var current_mode = DisplayServer.window_get_mode()
+		if current_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN or current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			# In fullscreen, set viewport size for internal scaling
+			get_viewport().size = resolution
+		else:
+			# In windowed modes, set window size
+			DisplayServer.window_set_size(resolution)
+	else:
+		push_error("Invalid resolution index: %d" % index)
 
 func apply_video_settings():
 	var video_settings = load_video_settings()
