@@ -24,6 +24,7 @@ shape = SubResource("CircleShape2D_kqu6x")
 texture_filter = 1
 position = Vector2(0, -6)
 texture = ExtResource("2_xnr2q")
+modulate = Color(1, 1, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="." groups=["npc"]]
 
