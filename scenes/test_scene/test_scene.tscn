@@ -71,7 +71,6 @@ scale = Vector2(42.758404, -89.53091)
 texture = SubResource("GradientTexture2D_brqnf")
 
 [node name="Zumbi" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_doi4a")]
-visible = false
 position = Vector2(-20, -24)
 saude = 100
 player = NodePath("../Player")
