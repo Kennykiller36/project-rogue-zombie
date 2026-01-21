@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://b0jx2rju82gui"]
+[gd_scene load_steps=12 format=4 uid="uid://b0jx2rju82gui"]
 
 [ext_resource type="Texture2D" uid="uid://bijjydsqd471p" path="res://sprites/tiles/isometric_tiles.png" id="1_d3phv"]
 [ext_resource type="Script" uid="uid://q7y4enmoao35" path="res://scenes/test_scene/game_scene_controller.gd" id="1_l4ihe"]
 [ext_resource type="Script" uid="uid://bvbd48pvuv0np" path="res://scenes/test_scene/tile_map_layer.gd" id="2_qicnp"]
 [ext_resource type="PackedScene" uid="uid://chrmr726s6myt" path="res://entidades/player/player.tscn" id="3_xkp7d"]
-[ext_resource type="PackedScene" uid="uid://8hjx4iv8ysv0" path="res://entidades/zumbi/zumbi.tscn" id="6_doi4a"]
 [ext_resource type="PackedScene" uid="uid://bwk1s1m7hif1b" path="res://scenes/aba_dialogos/ui_dialogo.tscn" id="6_vrddd"]
 [ext_resource type="PackedScene" uid="uid://qf84jogtbtmc" path="res://entidades/npc_dialogo/npc_da_run.tscn" id="7_vrddd"]
 
@@ -70,10 +69,6 @@ position = Vector2(5.9999995, 2.9999998)
 scale = Vector2(42.758404, -89.53091)
 texture = SubResource("GradientTexture2D_brqnf")
 
-[node name="Zumbi" parent="." instance=ExtResource("6_doi4a")]
-position = Vector2(-20, -24)
-saude = 100
-
 [node name="npc_da_run" parent="." instance=ExtResource("7_vrddd")]
 position = Vector2(-17, -40)
 
@@ -88,6 +83,3 @@ offset_left = -29.0
 offset_top = -29.0
 offset_right = 29.0
 offset_bottom = 29.0
-
-[node name="Zumbi2" parent="." instance=ExtResource("6_doi4a")]
-position = Vector2(0, -34)
