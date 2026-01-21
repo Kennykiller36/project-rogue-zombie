@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://cfuuqjhrkvtjh"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://cfuuqjhrkvtjh"]
 
 [ext_resource type="Script" uid="uid://f0okiqv4rnoe" path="res://entidades/arma/weapon_data.gd" id="1_weapon_data"]
 [ext_resource type="PackedScene" uid="uid://dk6cmeky32ua4" path="res://entidades/bala/bullet.tscn" id="2_bullet"]
+[ext_resource type="Texture2D" uid="uid://df8eg2b8q53fj" path="res://sprites/armas/shotgun_sprite.png" id="2_slisx"]
 
 [resource]
 script = ExtResource("1_weapon_data")
 bullet_scene = ExtResource("2_bullet")
-max_ammo = 120
+max_ammo = 3
+infinite_ammo = true
 fire_rate = 1.2
 bullets_per_shot = 3
 spread = 0.5
+gun_texture = ExtResource("2_slisx")
