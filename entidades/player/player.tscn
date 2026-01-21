@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dk8cy5t0xs3nx" path="res://entidades/player/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c5f7yjum14e4p" path="res://entidades/player/player.gd" id="1_rkbax"]
-[ext_resource type="PackedScene" uid="uid://cg3eyv0nu1nv3" path="res://entidades/arma/gun.tscn" id="4_hfl1g"]
+[ext_resource type="PackedScene" uid="uid://cg3eyv0nu1nv3" path="res://entidades/arma/arma.tscn" id="4_hfl1g"]
 [ext_resource type="PackedScene" uid="uid://cxt56vn25i6xo" path="res://scenes/HUD/canvas_hud.tscn" id="5_3euvj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
@@ -51,6 +51,7 @@ script = SubResource("GDScript_f2but")
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_f2but")
 
-[node name="Arma" parent="." instance=ExtResource("4_hfl1g")]
+[node name="arma" parent="." instance=ExtResource("4_hfl1g")]
+tipo_arma = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

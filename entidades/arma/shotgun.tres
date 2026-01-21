@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://cfuuqjhrkvtjh"]
+
+[ext_resource type="Script" uid="uid://f0okiqv4rnoe" path="res://entidades/arma/weapon_data.gd" id="1_weapon_data"]
+[ext_resource type="PackedScene" uid="uid://dk6cmeky32ua4" path="res://entidades/bala/bullet.tscn" id="2_bullet"]
+
+[resource]
+script = ExtResource("1_weapon_data")
+bullet_scene = ExtResource("2_bullet")
+max_ammo = 120
+fire_rate = 1.2
+bullets_per_shot = 3
+spread = 0.5
