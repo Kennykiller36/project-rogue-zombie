@@ -46,15 +46,13 @@ func aumentar_vida():
 	if saude >= 100:
 		return
 	saude += 10
-	if barra_hp:
-		barra_hp.hp = saude
+	barra_hp.hp = saude
 
 func diminuir_vida(dano: int):
 	if saude <= 0:
 		return
 	saude -= dano
-	if barra_hp:
-		barra_hp.hp = saude
+	barra_hp.hp = saude
 		
 
 ##Chamadas para Habilidade
@@ -62,16 +60,13 @@ func aumentar_habilidade():
 	if carga_habilidade >= 100:
 		return
 	carga_habilidade += 10
-	if barra_habilidade:
-		barra_habilidade.carga_habilidade = carga_habilidade
-
-func diminuir_habilidade():
-	if carga_habilidade <= 0:
+	barra_habilidade.carga_habilidade = carga_habilidade
+		
+func usarHabilidade():
+	if carga_habilidade < 100:
 		return
-	carga_habilidade -= 10
-	if barra_habilidade:
-		barra_habilidade.carga_habilidade = carga_habilidade
-
+	carga_habilidade -= 100
+	barra_habilidade.carga_habilidade = carga_habilidade
 
 func _input(event):
 	if event.is_action_pressed("addHealth"):
@@ -80,5 +75,5 @@ func _input(event):
 		diminuir_vida(10)
 	if event.is_action_pressed("addHabilidade"):
 		aumentar_habilidade()
-	if event.is_action_pressed("loseHabilidade"):
-		diminuir_habilidade()
+	if event.is_action_pressed("usarHabilidade"):
+		usarHabilidade()
