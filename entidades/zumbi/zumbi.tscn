@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://8hjx4iv8ysv0"]
 
 [ext_resource type="Script" uid="uid://df2d8vdol80pl" path="res://entidades/zumbi/zumbi.gd" id="1_rvapf"]
-[ext_resource type="Texture2D" uid="uid://dk8cy5t0xs3nx" path="res://entidades/player/player.png" id="2_p3pvq"]
+[ext_resource type="Texture2D" uid="uid://dk8cy5t0xs3nx" path="res://sprites/personagens_principais/player.png" id="2_p3pvq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 radius = 2.0

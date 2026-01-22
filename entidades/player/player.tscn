@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://chrmr726s6myt"]
 
-[ext_resource type="Texture2D" uid="uid://dk8cy5t0xs3nx" path="res://entidades/player/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c5f7yjum14e4p" path="res://entidades/player/player.gd" id="1_rkbax"]
+[ext_resource type="Resource" uid="uid://c5b22pb2nx8ov" path="res://entidades/player/player1.tres" id="2_hfl1g"]
 [ext_resource type="PackedScene" uid="uid://cg3eyv0nu1nv3" path="res://entidades/arma/arma.tscn" id="4_hfl1g"]
 [ext_resource type="PackedScene" uid="uid://cxt56vn25i6xo" path="res://scenes/HUD/canvas_hud.tscn" id="5_3euvj"]
 
@@ -33,14 +33,14 @@ collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_rkbax")
+player_data = ExtResource("2_hfl1g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kqu6x")
 
-[node name="Player" type="Sprite2D" parent="."]
+[node name="SpritePlayer" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -6)
-texture = ExtResource("1_oul6g")
 
 [node name="CanvasHud" parent="." instance=ExtResource("5_3euvj")]
 
@@ -52,6 +52,6 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_f2but")
 
 [node name="arma" parent="." instance=ExtResource("4_hfl1g")]
-tipo_arma = 1
+tipo_arma = 0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
