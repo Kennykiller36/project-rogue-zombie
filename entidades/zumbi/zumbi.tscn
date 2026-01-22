@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://8hjx4iv8ysv0"]
 
 [ext_resource type="Script" uid="uid://df2d8vdol80pl" path="res://entidades/zumbi/zumbi.gd" id="1_rvapf"]
-[ext_resource type="Texture2D" uid="uid://dk8cy5t0xs3nx" path="res://sprites/personagens_principais/player.png" id="2_p3pvq"]
+[ext_resource type="Resource" uid="uid://byuhp14fogwml" path="res://entidades/zumbi/zumbi.tres" id="2_rvapf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 radius = 2.0
@@ -16,16 +16,15 @@ collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_rvapf")
-dano = 10
+enemy_data = ExtResource("2_rvapf")
 
 [node name="MovimentoCollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kqu6x")
 
-[node name="Player" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
 texture_filter = 1
 position = Vector2(0, -6)
-texture = ExtResource("2_p3pvq")
-modulate = Color(1, 0, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="." groups=["inimigo"]]
 

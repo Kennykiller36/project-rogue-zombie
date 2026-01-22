@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://byuhp14fogwml"]
+
+[ext_resource type="Script" uid="uid://cx84wunrq0t" path="res://entidades/zumbi/enemy_data.gd" id="1_q24g3"]
+[ext_resource type="Texture2D" uid="uid://dk8cy5t0xs3nx" path="res://sprites/personagens_principais/player.png" id="2_q24g3"]
+
+[resource]
+script = ExtResource("1_q24g3")
+vidamaxima = 100
+dano = 10
+sprite_texture = ExtResource("2_q24g3")
+velocidade = 20.0
+player = "Player"
