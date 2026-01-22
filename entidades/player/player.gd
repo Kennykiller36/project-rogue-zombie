@@ -35,19 +35,18 @@ func _ready() -> void:
 	else:
 		push_warning("BarraDeHp não encontrada")
 
+
+
 func player_init() -> void:
 	if player_data == null:
 		push_error("PlayerData não atribuído!")
 		return
-
 	saude = player_data.saudeMaxima
 	max_speed = player_data.velocidade
 	acceleration = max_speed / TIME_TO_MAX_SPEED
 	friction = max_speed / TIME_TO_STOP
 	turn_speed = max_speed / TIME_TO_TURN
-
 	componente_sprite.texture = player_data.sprite
-
 	componente_arma.setup_weapon(player_data.armaInicial)
 	
 func _physics_process(delta: float) -> void:
@@ -67,24 +66,20 @@ func _physics_process(delta: float) -> void:
 			velocity -= velocity.normalized() * friction * delta
 			if velocity.length() < min_speed:
 				velocity = Vector2.ZERO
-
 	move_and_slide()
 
 
 func aumentar_vida() -> void:
 	if saude >= player_data.saudeMaxima:
 		return
-
 	saude = min(saude + 10, player_data.saudeMaxima)
 	barra_hp.hp = saude
 
 func diminuir_vida(dano: int) -> void:
 	if saude <= 0:
 		return
-
 	saude = max(saude - dano, 0)
 	barra_hp.hp = saude
-
 	if saude == 0:
 		morrer()
 
@@ -94,16 +89,15 @@ func morrer() -> void:
 func aumentar_habilidade() -> void:
 	if carga_habilidade >= 100:
 		return
-
 	carga_habilidade = min(carga_habilidade + 10, 100)
 	barra_habilidade.carga_habilidade = carga_habilidade
 
 func usarHabilidade() -> void:
 	if carga_habilidade < 100:
 		return
-
 	carga_habilidade = 0
 	barra_habilidade.carga_habilidade = carga_habilidade
+	print("A sua habilidade é: "+player_data.habilidadeEspecial)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("addHealth"):

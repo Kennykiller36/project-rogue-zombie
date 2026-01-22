@@ -1,14 +1,10 @@
 extends Node2D
 
-@export var tipo_arma: int = 1 # 1 = Pistol, 2 = Shotgun
+@export var tipo_arma: int = 1 
 @export var weapon_data: WeaponData
 @onready var sprite: Sprite2D = $Sprite2D
 
 var fire_timer: float = 0.0
-
-func _ready() -> void:
-	if weapon_data == null:
-		setup_weapon(tipo_arma)
 
 func setup_weapon(weapon_type: int) -> void:
 	tipo_arma = weapon_type

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3 uid="uid://c3xb0fjmpumj8"]
+
+[ext_resource type="Script" uid="uid://bgh1681waghfl" path="res://entidades/player/player_data.gd" id="1_00bkn"]
+[ext_resource type="Texture2D" uid="uid://cey3nm07q1xyr" path="res://sprites/personagens_principais/Prisioneiro_Enzo.png" id="2_52gam"]
+
+[resource]
+script = ExtResource("1_00bkn")
+ID = "1"
+saudeMaxima = 100
+habilidadeEspecial = "DizerOlaPrisioneiro"
+velocidade = 20.0
+sprite = ExtResource("2_52gam")
+armaInicial = 2

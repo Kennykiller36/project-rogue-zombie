@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3 uid="uid://c5b22pb2nx8ov"]
+
+[ext_resource type="Script" uid="uid://bgh1681waghfl" path="res://entidades/player/player_data.gd" id="1_ecank"]
+[ext_resource type="Texture2D" uid="uid://b1pquuwgig0g6" path="res://sprites/personagens_principais/Policial_Martin.png" id="2_amcdb"]
+
+[resource]
+script = ExtResource("1_ecank")
+ID = "1"
+saudeMaxima = 100
+habilidadeEspecial = "DizerOlaPolicial"
+velocidade = 20.0
+sprite = ExtResource("2_amcdb")
+armaInicial = 1
