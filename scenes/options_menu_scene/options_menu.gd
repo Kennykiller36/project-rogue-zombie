@@ -14,9 +14,9 @@ func _on_voltar_menu_btn_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu_scene/main_menu.tscn")
 
 func _on_voltar_jogo_btn_pressed():
-	opened_from_gameplay = false  
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/test_scene/test_scene.tscn")
+	opened_from_gameplay = false
+	# Call resume on the game scene controller
+	get_parent().get_parent()._on_resume_game()
 
 func _on_voltar_hub_btn_pressed():
 	opened_from_gameplay = false  # Reset flag when going to hub
