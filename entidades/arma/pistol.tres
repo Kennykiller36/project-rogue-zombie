@@ -7,8 +7,7 @@
 [resource]
 script = ExtResource("2_2p3ty")
 bullet_scene = ExtResource("1_abtvb")
-max_ammo = 1
+max_ammo = 3
 infinite_ammo = true
 fire_rate = 0.5
-bullets_per_shot = 1
 gun_texture = ExtResource("2_1jagv")

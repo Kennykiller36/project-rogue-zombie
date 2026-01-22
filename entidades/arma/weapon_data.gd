@@ -2,10 +2,9 @@ extends Resource
 class_name WeaponData
 
 @export var bullet_scene: PackedScene
-@export var max_ammo: int
-@export var current_ammo: int
+@export var max_ammo: int = 10
 @export var infinite_ammo: bool = false
-@export var fire_rate: float
-@export var bullets_per_shot: int
-@export var spread: float
+@export var fire_rate: float = 0.2
+@export var bullets_per_shot: int = 1
+@export var spread: float = 0.0
 @export var gun_texture: Texture2D
