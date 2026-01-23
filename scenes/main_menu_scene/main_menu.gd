@@ -5,7 +5,7 @@ func _ready():
 	get_tree().paused = false
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://scenes/test_scene/test_scene.tscn")
+	get_tree().change_scene_to_file("res://scenes/selecao_personagens/character_select.tscn")
 
 func _on_options_pressed():
 	var options_menu_script = load("res://scenes/options_menu_scene/options_menu.gd")

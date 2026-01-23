@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ConfigFileHandler="*res://scenes/options_menu_scene/config_file_handler.gd"
+GameData="*res://globals/game_data.gd"
 
 [display]
 

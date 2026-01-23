@@ -8,6 +8,10 @@ func _ready():
 	get_tree().paused = false
 	canvas_layer = CanvasLayer.new()
 	add_child(canvas_layer)
+	
+	if GameData.selected_player_data:
+		$Player.player_data = GameData.selected_player_data
+		$Player.player_init()
 
 func _input(event):
 	if event.is_action_pressed("pause"):
