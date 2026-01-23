@@ -19,6 +19,8 @@ func setup_weapon(weapon_type: int) -> void:
 			weapon_data = preload("res://entidades/arma/pistol.tres").duplicate()
 		2:
 			weapon_data = preload("res://entidades/arma/shotgun.tres").duplicate()
+		3:
+			weapon_data = preload("res://entidades/arma/smg.tres").duplicate()
 		_:
 			push_error("Invalid tipo_arma value!")
 			return

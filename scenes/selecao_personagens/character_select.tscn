@@ -52,5 +52,10 @@ text = "Policial"
 layout_mode = 2
 text = "Prisioneiro"
 
+[node name="FotografaButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Fotografa"
+
 [connection signal="pressed" from="VBoxContainer/PolicialButton" to="." method="_on_policial_pressed"]
 [connection signal="pressed" from="VBoxContainer/PrisioneiroButton" to="." method="_on_prisioneiro_pressed"]
+[connection signal="pressed" from="VBoxContainer/FotografaButton" to="." method="_on_fotografa_button_pressed"]

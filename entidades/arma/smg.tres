@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://dpr02kb3tda0o"]
+
+[ext_resource type="PackedScene" uid="uid://dk6cmeky32ua4" path="res://entidades/bala/bullet.tscn" id="1_y4tnp"]
+[ext_resource type="Texture2D" uid="uid://4x8vy8h0yvur" path="res://sprites/armas/smg.png" id="2_y4tnp"]
+[ext_resource type="Script" uid="uid://f0okiqv4rnoe" path="res://entidades/arma/weapon_data.gd" id="3_46t4k"]
+
+[resource]
+script = ExtResource("3_46t4k")
+bullet_scene = ExtResource("1_y4tnp")
+max_ammo = 60
+fire_rate = 0.12
+spread = 0.05
+gun_texture = ExtResource("2_y4tnp")

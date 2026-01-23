@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_00bkn")
-ID = "1"
+ID = "2"
 saudeMaxima = 100
 habilidadeEspecial = "DizerOlaPrisioneiro"
 velocidade = 20.0

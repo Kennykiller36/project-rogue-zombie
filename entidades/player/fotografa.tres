@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=3 format=3 uid="uid://dgfgexulcq6sc"]
+
+[ext_resource type="Script" uid="uid://bgh1681waghfl" path="res://entidades/player/player_data.gd" id="1_0gt1y"]
+[ext_resource type="Texture2D" uid="uid://bj4mkpavobge4" path="res://sprites/personagens_principais/Fotografa_Anya.png" id="2_0gt1y"]
+
+[resource]
+script = ExtResource("1_0gt1y")
+ID = "3"
+saudeMaxima = 100
+habilidadeEspecial = "DizerOlaFotografa"
+velocidade = 20.0
+sprite = ExtResource("2_0gt1y")
+armaInicial = 3
