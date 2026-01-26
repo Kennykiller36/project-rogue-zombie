@@ -1,5 +1,8 @@
 extends Node2D
 
+signal shot
+signal weapon_data_ready
+
 @export var tipo_arma: int = 1 
 @export var weapon_data: WeaponData
 @onready var sprite: Sprite2D = $Sprite2D
@@ -15,7 +18,7 @@ func _ready() -> void:
 func setup_weapon(weapon_type: int) -> void:
 	tipo_arma = weapon_type
 	match tipo_arma:
-		1:
+		0, 1:
 			weapon_data = preload("res://entidades/arma/pistol.tres").duplicate()
 		2:
 			weapon_data = preload("res://entidades/arma/shotgun.tres").duplicate()
@@ -24,11 +27,15 @@ func setup_weapon(weapon_type: int) -> void:
 		_:
 			push_error("Invalid tipo_arma value!")
 			return
+
 	municao_atual = weapon_data.max_ammo
+
 	if weapon_data.gun_texture:
 		sprite.texture = weapon_data.gun_texture
 	else:
 		push_warning("Gun texture not set in WeaponData!")
+
+	weapon_data_ready.emit() 
 
 
 func mirar() -> void:
@@ -60,6 +67,8 @@ func atira() -> void:
 	if !weapon_data.infinite_ammo:
 		municao_atual = max(municao_atual - 1, 0)
 	print(municao_atual)
+	shot.emit()
+
 
 func _process(delta: float) -> void:
 	mirar()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxt56vn25i6xo"]
+[gd_scene load_steps=5 format=3 uid="uid://cxt56vn25i6xo"]
 
 [ext_resource type="PackedScene" uid="uid://87bq5vkjlxve" path="res://scenes/HUD/barra_de_hp.tscn" id="1_1bv0e"]
 [ext_resource type="Texture2D" uid="uid://femicxaauumb" path="res://sprites/hud/progress_bar.png" id="2_fd8di"]
 [ext_resource type="Script" uid="uid://dn2ijsl87avf7" path="res://scenes/HUD/barra_de_habilidade.gd" id="3_cap0m"]
+[ext_resource type="PackedScene" uid="uid://cf50d6jjdbqoo" path="res://scenes/HUD/hud_arma.tscn" id="4_xroia"]
 
 [node name="CanvasHud" type="CanvasLayer"]
 
@@ -28,3 +29,14 @@ tint_under = Color(0, 0, 0, 0.5137255)
 tint_progress = Color(0.6423496, 0.500957, 0, 1)
 script = ExtResource("3_cap0m")
 metadata/_edit_use_anchors_ = true
+
+[node name="HudArma" parent="." instance=ExtResource("4_xroia")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -34.0
+offset_top = 16.0
+offset_right = -34.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 1

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf50d6jjdbqoo"]
+
+[ext_resource type="Script" uid="uid://bargu115amt8m" path="res://hud_arma.gd" id="1_na4pw"]
+
+[node name="HudArma" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_na4pw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2620907, 0.2620907)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -18.0
+offset_top = 23.0
+offset_right = 22.0
+offset_bottom = 46.0

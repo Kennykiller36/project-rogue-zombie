@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://chrmr726s6myt" path="res://entidades/player/player.tscn" id="3_xkp7d"]
 [ext_resource type="PackedScene" uid="uid://bwk1s1m7hif1b" path="res://scenes/aba_dialogos/ui_dialogo.tscn" id="6_vrddd"]
 [ext_resource type="PackedScene" uid="uid://qf84jogtbtmc" path="res://entidades/npc_dialogo/npc_da_run.tscn" id="7_vrddd"]
+[ext_resource type="Resource" path="res://entidades/player/policial.tres" id="8_policial"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wgdak"]
 vertices = PackedVector2Array(8, 0, 0, 4, -8, 0, 0, -4)
@@ -57,6 +58,7 @@ tile_set = SubResource("TileSet_vbw75")
 script = ExtResource("2_qicnp")
 
 [node name="Player" parent="." instance=ExtResource("3_xkp7d")]
+player_data = ExtResource("8_policial")
 position = Vector2(17, -26)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
