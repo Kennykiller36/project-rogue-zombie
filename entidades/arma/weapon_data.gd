@@ -8,3 +8,4 @@ class_name WeaponData
 @export var bullets_per_shot: int = 1
 @export var spread: float = 0.0
 @export var gun_texture: Texture2D
+@export var attachments: Array[ItemData] = []

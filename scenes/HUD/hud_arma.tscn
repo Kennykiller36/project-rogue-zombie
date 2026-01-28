@@ -14,6 +14,14 @@ script = ExtResource("1_na4pw")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2620907, 0.2620907)
 
+[node name="AttachmentContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -20.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 30.0
+alignment = 1
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = -18.0

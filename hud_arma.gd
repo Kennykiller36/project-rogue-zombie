@@ -2,6 +2,7 @@ extends Control
 
 @onready var weapon_sprite: Sprite2D = $Sprite2D
 @onready var ammo_label: Label = $Label
+@onready var attachment_container: HBoxContainer = $AttachmentContainer
 
 var arma: Node2D
 
@@ -40,6 +41,21 @@ func update_display() -> void:
 	var data: WeaponData = arma.weapon_data
 
 	weapon_sprite.texture = data.gun_texture if data.gun_texture else null
+
+	# Clear existing attachment icons
+	for child in attachment_container.get_children():
+		child.queue_free()
+
+	# Add attachment icons
+	for att in data.attachments:
+		if att.icon:
+			var icon = TextureRect.new()
+			icon.texture = att.icon
+			icon.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
+			icon.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+			icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			icon.custom_minimum_size = Vector2(20, 20)
+			attachment_container.add_child(icon)
 
 	if data.infinite_ammo:
 		ammo_label.text = "∞"
