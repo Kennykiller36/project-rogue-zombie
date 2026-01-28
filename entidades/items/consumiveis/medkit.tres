@@ -1,14 +1,13 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cn55opksg524u"]
+[gd_resource type="Resource" script_class="ConsumableData" load_steps=3 format=3 uid="uid://cn55opksg524u"]
 
 [ext_resource type="Texture2D" uid="uid://c5y03v5tytg4p" path="res://icon.svg" id="1_l0d1u"]
-[ext_resource type="Script" uid="uid://ckk24hwpo4osh" path="res://entidades/items/item_data.gd" id="2_h13wo"]
+[ext_resource type="Script" uid="uid://dblj3106iwnxd" path="res://entidades/items/consumiveis/ConsumableData.gd" id="2_h13wo"]
 
 [resource]
 script = ExtResource("2_h13wo")
+effect_value = 100
 name = "Medkit"
 description = "Cura para vida total"
 price = 100
 icon = ExtResource("1_l0d1u")
 type = "Consumable"
-effect_type = "heal"
-effect_value = 100

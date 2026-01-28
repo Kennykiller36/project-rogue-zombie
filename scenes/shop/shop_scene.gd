@@ -36,34 +36,23 @@ func _on_comprar_pressionado(item: ItemData):
 		print("Dinheiro insuficiente")
 
 func aplicar_efeito_item(item: ItemData, jogador: Player):
-	if item.type == "Consumable":
-		if item.effect_type == "heal":
-			if jogador and jogador.has_method("aumentar_vida"):
-				jogador.aumentar_vida(item.effect_value)
-				print("Bought item: ", item.name)
+	if item is ConsumableData:
+		item.apply(jogador)
+		print("Bought item: ", item.name)
 
-	elif item.type == "WeaponMod":
+	elif item is WeaponModData:
 		if not jogador.componente_arma:
 			return
-
 		var weapon = jogador.componente_arma
 		if not weapon.weapon_data:
 			return
-
 		for att in weapon.weapon_data.attachments:
 			if att == item:
 				print("Already has this attachment: ", item.name)
 				return
-
 		weapon.weapon_data.attachments.append(item)
-
-		if item.mod_stat == "fire_rate":
-			var old_fire_rate = weapon.weapon_data.fire_rate
-			weapon.weapon_data.fire_rate *= item.mod_value
-			var new_fire_rate = weapon.weapon_data.fire_rate
-			print("Bought attachment: ", item.name)
-			print("Old fire rate: ", old_fire_rate, " | New fire rate: ", new_fire_rate)
-
+		item.apply_to_weapon(weapon.weapon_data)
+		print("Bought attachment: ", item.name)
 		weapon.weapon_data_ready.emit()
 
 

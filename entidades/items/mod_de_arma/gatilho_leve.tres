@@ -1,14 +1,13 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bp1f3ku5bskn4"]
+[gd_resource type="Resource" script_class="WeaponModData" load_steps=3 format=3 uid="uid://bp1f3ku5bskn4"]
 
 [ext_resource type="Texture2D" uid="uid://c5y03v5tytg4p" path="res://icon.svg" id="1_fh0up"]
-[ext_resource type="Script" uid="uid://ckk24hwpo4osh" path="res://entidades/items/item_data.gd" id="2_fghn1"]
+[ext_resource type="Script" uid="uid://b0qu7x4kjc8yg" path="res://entidades/items/mod_de_arma/WeaponModData.gd" id="2_fh0up"]
 
 [resource]
-script = ExtResource("2_fghn1")
+script = ExtResource("2_fh0up")
+multiplier = 0.2
 name = "GatilhoLeve"
 description = "Aumenta a cadencia da arma por 30"
 price = 100
 icon = ExtResource("1_fh0up")
 type = "WeaponMod"
-mod_stat = "fire_rate"
-mod_value = 0.7
