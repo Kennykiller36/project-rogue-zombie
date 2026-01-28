@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bp1f3ku5bskn4"]
+
+[ext_resource type="Texture2D" uid="uid://c5y03v5tytg4p" path="res://icon.svg" id="1_fh0up"]
+[ext_resource type="Script" uid="uid://ckk24hwpo4osh" path="res://entidades/items/item_data.gd" id="2_fghn1"]
+
+[resource]
+script = ExtResource("2_fghn1")
+name = "GatilhoLeve"
+description = "Aumenta a cadencia da arma por 30"
+price = 100
+icon = ExtResource("1_fh0up")
+type = "Consumable"
+effect_type = "heal"
+effect_value = 100

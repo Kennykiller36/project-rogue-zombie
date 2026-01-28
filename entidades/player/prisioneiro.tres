@@ -11,3 +11,4 @@ habilidadeEspecial = "DizerOlaPrisioneiro"
 velocidade = 20.0
 sprite = ExtResource("2_52gam")
 armaInicial = 2
+dinheiroInicial = 1000

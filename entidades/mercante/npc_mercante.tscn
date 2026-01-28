@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://o0t4nhk5iafk"]
+
+[ext_resource type="Script" uid="uid://grmbmm0mu15x" path="res://entidades/mercante/npc_mercador.gd" id="1_ub0pa"]
+[ext_resource type="Texture2D" uid="uid://dk8cy5t0xs3nx" path="res://sprites/personagens_principais/player.png" id="2_lfwyo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2but"]
+size = Vector2(12, 14)
+
+[node name="npc_mercante" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_ub0pa")
+
+[node name="MovimentoCollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kqu6x")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+texture_filter = 1
+position = Vector2(0, -6)
+texture = ExtResource("2_lfwyo")
+
+[node name="Area2D" type="Area2D" parent="." groups=["npc"]]
+
+[node name="DialogoCollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_f2but")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

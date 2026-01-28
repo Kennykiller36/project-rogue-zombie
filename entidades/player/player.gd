@@ -15,6 +15,7 @@ class_name Player
 ## Runtime state
 var saude: int
 var carga_habilidade: int = 100
+var dinheiro_atual: int = 0
 
 ## Movimento
 var max_speed: float
@@ -48,6 +49,7 @@ func player_init() -> void:
 	turn_speed = max_speed / TIME_TO_TURN
 	componente_sprite.texture = player_data.sprite
 	componente_arma.setup_weapon(player_data.armaInicial)
+	dinheiro_atual = player_data.dinheiroInicial
 	
 func _physics_process(delta: float) -> void:
 	dir_input = Input.get_vector("left", "right", "up", "down")
@@ -69,10 +71,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func aumentar_vida() -> void:
+func aumentar_vida(quantidade: int = 10) -> void:
 	if saude >= player_data.saudeMaxima:
 		return
-	saude = min(saude + 10, player_data.saudeMaxima)
+	saude = min(saude + quantidade, player_data.saudeMaxima)
 	barra_hp.hp = saude
 
 func diminuir_vida(dano: int) -> void:

@@ -11,3 +11,4 @@ habilidadeEspecial = "DizerOlaPolicial"
 velocidade = 20.0
 sprite = ExtResource("2_amcdb")
 armaInicial = 1
+dinheiroInicial = 1000
