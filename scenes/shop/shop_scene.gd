@@ -43,20 +43,29 @@ func aplicar_efeito_item(item: ItemData, jogador: Player):
 				print("Bought item: ", item.name)
 
 	elif item.type == "WeaponMod":
-		if jogador.componente_arma and jogador.componente_arma.weapon_data:
-			var already_has = false
-			for att in jogador.componente_arma.weapon_data.attachments:
-				if att.name == item.name:
-					already_has = true
-					break
-			if already_has:
+		if not jogador.componente_arma:
+			return
+
+		var weapon = jogador.componente_arma
+		if not weapon.weapon_data:
+			return
+
+		for att in weapon.weapon_data.attachments:
+			if att == item:
 				print("Already has this attachment: ", item.name)
-				return  
-			jogador.componente_arma.weapon_data.attachments.append(item)
-			if item.mod_stat == "fire_rate":
-				jogador.componente_arma.weapon_data.fire_rate *= item.mod_value
-				print("Bought item: ", item.name)
-			jogador.componente_arma.weapon_data_ready.emit()
+				return
+
+		weapon.weapon_data.attachments.append(item)
+
+		if item.mod_stat == "fire_rate":
+			var old_fire_rate = weapon.weapon_data.fire_rate
+			weapon.weapon_data.fire_rate *= item.mod_value
+			var new_fire_rate = weapon.weapon_data.fire_rate
+			print("Bought attachment: ", item.name)
+			print("Old fire rate: ", old_fire_rate, " | New fire rate: ", new_fire_rate)
+
+		weapon.weapon_data_ready.emit()
+
 
 func atualizar_exibicao_dinheiro(jogador: Player):
 	if rotulo_dinheiro:

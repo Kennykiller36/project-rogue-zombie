@@ -110,3 +110,5 @@ func _input(event: InputEvent) -> void:
 		aumentar_habilidade()
 	elif event.is_action_pressed("usarHabilidade"):
 		usarHabilidade()
+	elif event.is_action_pressed("give_pistol"):
+		componente_arma.setup_weapon(1)
