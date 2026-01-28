@@ -8,4 +8,5 @@ class_name PlayerData
 @export var sprite: Texture2D
 @export var armaInicial: int
 @export var dinheiroInicial: int
+@export var sucataInicial: int
 @export var current_weapon: WeaponData  # Current weapon

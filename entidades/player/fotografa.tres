@@ -12,3 +12,4 @@ velocidade = 20.0
 sprite = ExtResource("2_0gt1y")
 armaInicial = 3
 dinheiroInicial = 1000
+sucataInicial = 1000

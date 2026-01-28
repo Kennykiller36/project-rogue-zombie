@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://d08xssjfgylyg"]
+
+[ext_resource type="Script" uid="uid://c0cffk6djdnor" path="res://entidades/crafting/craftador.gd" id="1_a6rt2"]
+[ext_resource type="Texture2D" uid="uid://c5y03v5tytg4p" path="res://icon.svg" id="2_a6rt2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2but"]
+size = Vector2(12, 14)
+
+[node name="craftador" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_a6rt2")
+
+[node name="MovimentoCollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kqu6x")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+texture_filter = 1
+position = Vector2(0, -6)
+scale = Vector2(0.09607212, 0.09607212)
+texture = ExtResource("2_a6rt2")
+
+[node name="Area2D" type="Area2D" parent="." groups=["npc"]]
+
+[node name="DialogoCollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_f2but")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

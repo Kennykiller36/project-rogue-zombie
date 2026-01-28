@@ -9,5 +9,6 @@ effect_value = 100
 name = "Medkit"
 description = "Cura para vida total"
 price = 100
+craft_cost = 50
 icon = ExtResource("1_l0d1u")
 type = "Consumable"

@@ -16,6 +16,7 @@ class_name Player
 var saude: int
 var carga_habilidade: int = 100
 var dinheiro_atual: int = 0
+var sucata_atual: int = 0
 
 ## Movimento
 var max_speed: float
@@ -50,7 +51,8 @@ func player_init() -> void:
 	componente_sprite.texture = player_data.sprite
 	componente_arma.setup_weapon(player_data.armaInicial)
 	dinheiro_atual = player_data.dinheiroInicial
-	
+	sucata_atual = player_data.sucataInicial
+
 func _physics_process(delta: float) -> void:
 	dir_input = Input.get_vector("left", "right", "up", "down")
 

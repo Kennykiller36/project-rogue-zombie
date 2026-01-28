@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://qf84jogtbtmc" path="res://entidades/npc_dialogo/npc_da_run.tscn" id="7_vrddd"]
 [ext_resource type="PackedScene" uid="uid://o0t4nhk5iafk" path="res://entidades/mercante/npc_mercante.tscn" id="8_ork3v"]
 [ext_resource type="Resource" uid="uid://c5b22pb2nx8ov" path="res://entidades/player/policial.tres" id="8_policial"]
-[ext_resource type="PackedScene" uid="uid://8hjx4iv8ysv0" path="res://entidades/zumbi/zumbi.tscn" id="9_a0rq3"]
+[ext_resource type="PackedScene" uid="uid://d08xssjfgylyg" path="res://entidades/crafting/craftador.tscn" id="9_a0rq3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wgdak"]
 vertices = PackedVector2Array(8, 0, 0, 4, -8, 0, 0, -4)
@@ -86,5 +86,5 @@ offset_bottom = 29.0
 [node name="npc_mercante" parent="." instance=ExtResource("8_ork3v")]
 position = Vector2(-20, -19)
 
-[node name="Zumbi" parent="." instance=ExtResource("9_a0rq3")]
-position = Vector2(0, -37)
+[node name="craftador" parent="." instance=ExtResource("9_a0rq3")]
+position = Vector2(2, -17)

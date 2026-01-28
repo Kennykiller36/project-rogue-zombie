@@ -33,6 +33,9 @@ func connect_signals() -> void:
 	if not arma.shot.is_connected(_on_arma_shot):
 		arma.shot.connect(_on_arma_shot)
 
+	if not arma.ammo_changed.is_connected(_on_ammo_changed):
+		arma.ammo_changed.connect(_on_ammo_changed)
+
 
 func update_display() -> void:
 	if not arma or not arma.weapon_data:
@@ -69,4 +72,8 @@ func _on_weapon_data_ready() -> void:
 
 
 func _on_arma_shot() -> void:
+	update_display()
+
+
+func _on_ammo_changed() -> void:
 	update_display()

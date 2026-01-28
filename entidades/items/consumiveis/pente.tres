@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ConsumableData" load_steps=3 format=3 uid="uid://saln8xqb7cd4"]
+
+[ext_resource type="Texture2D" uid="uid://c5y03v5tytg4p" path="res://icon.svg" id="1_p3edr"]
+[ext_resource type="Script" uid="uid://dblj3106iwnxd" path="res://entidades/items/consumiveis/ConsumableData.gd" id="2_tjgh0"]
+
+[resource]
+script = ExtResource("2_tjgh0")
+effect_type = 1
+effect_value = 30
+name = "Pente"
+description = "Dá mais 30 balas"
+price = 100
+craft_cost = 25
+icon = ExtResource("1_p3edr")
+type = "Consumable"

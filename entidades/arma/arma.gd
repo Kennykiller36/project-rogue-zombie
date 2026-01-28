@@ -2,6 +2,7 @@ extends Node2D
 
 signal shot
 signal weapon_data_ready
+signal ammo_changed
 
 @export var tipo_arma: int = 1 
 @export var weapon_data: WeaponData
