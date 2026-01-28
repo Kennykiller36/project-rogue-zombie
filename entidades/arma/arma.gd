@@ -30,12 +30,15 @@ func setup_weapon(weapon_type: int) -> void:
 
 	municao_atual = weapon_data.max_ammo
 
+	# Clear attachments for new weapon instance
+	weapon_data.attachments.clear()
+
 	if weapon_data.gun_texture:
 		sprite.texture = weapon_data.gun_texture
 	else:
 		push_warning("Gun texture not set in WeaponData!")
 
-	weapon_data_ready.emit() 
+	weapon_data_ready.emit()
 
 
 func mirar() -> void:
