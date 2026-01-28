@@ -6,8 +6,9 @@
 
 [resource]
 script = ExtResource("3_46t4k")
-bullet_scene = ExtResource("1_y4tnp")
-max_ammo = 60
+base_damage = 20
 fire_rate = 0.12
+max_ammo = 60
 spread = 0.05
+bullet_scene = ExtResource("1_y4tnp")
 gun_texture = ExtResource("2_y4tnp")

@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://dv70eq0bnnnp2"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://dv70eq0bnnnp2"]
 
-[ext_resource type="Script" uid="uid://ckk24hwpo4osh" path="res://entidades/items/item_data.gd" id="1_1jagv"]
 [ext_resource type="PackedScene" uid="uid://dk6cmeky32ua4" path="res://entidades/bala/bullet.tscn" id="1_abtvb"]
 [ext_resource type="Texture2D" uid="uid://cdydv2u8bxcah" path="res://sprites/armas/gun_sprite.png" id="2_1jagv"]
 [ext_resource type="Script" uid="uid://f0okiqv4rnoe" path="res://entidades/arma/weapon_data.gd" id="2_2p3ty"]
 
 [resource]
 script = ExtResource("2_2p3ty")
-bullet_scene = ExtResource("1_abtvb")
+base_damage = 50
+fire_rate = 0.5
 max_ammo = 3
 infinite_ammo = true
-fire_rate = 0.5
+bullet_scene = ExtResource("1_abtvb")
 gun_texture = ExtResource("2_1jagv")

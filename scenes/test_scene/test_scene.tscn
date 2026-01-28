@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b0jx2rju82gui"]
+[gd_scene load_steps=15 format=4 uid="uid://b0jx2rju82gui"]
 
 [ext_resource type="Texture2D" uid="uid://bijjydsqd471p" path="res://sprites/tiles/isometric_tiles.png" id="1_d3phv"]
 [ext_resource type="Script" uid="uid://q7y4enmoao35" path="res://scenes/test_scene/game_scene_controller.gd" id="1_l4ihe"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://qf84jogtbtmc" path="res://entidades/npc_dialogo/npc_da_run.tscn" id="7_vrddd"]
 [ext_resource type="PackedScene" uid="uid://o0t4nhk5iafk" path="res://entidades/mercante/npc_mercante.tscn" id="8_ork3v"]
 [ext_resource type="Resource" uid="uid://c5b22pb2nx8ov" path="res://entidades/player/policial.tres" id="8_policial"]
+[ext_resource type="PackedScene" uid="uid://8hjx4iv8ysv0" path="res://entidades/zumbi/zumbi.tscn" id="9_a0rq3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wgdak"]
 vertices = PackedVector2Array(8, 0, 0, 4, -8, 0, 0, -4)
@@ -77,11 +78,6 @@ position = Vector2(-17, -40)
 
 [node name="UIDialogo" parent="." instance=ExtResource("6_vrddd")]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -29.0
 offset_top = -29.0
 offset_right = 29.0
@@ -89,3 +85,6 @@ offset_bottom = 29.0
 
 [node name="npc_mercante" parent="." instance=ExtResource("8_ork3v")]
 position = Vector2(-20, -19)
+
+[node name="Zumbi" parent="." instance=ExtResource("9_a0rq3")]
+position = Vector2(0, -37)

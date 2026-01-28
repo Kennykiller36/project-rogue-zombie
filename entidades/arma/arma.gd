@@ -58,15 +58,15 @@ func atira() -> void:
 	var spread_step := 0.0
 	if weapon_data.bullets_per_shot > 1:
 		spread_step = weapon_data.spread / (weapon_data.bullets_per_shot - 1)
-
 	var start_angle := rotation - (weapon_data.spread * 0.5)
-
+	
 	for i in range(weapon_data.bullets_per_shot):
 		var bullet = weapon_data.bullet_scene.instantiate()
 		get_tree().current_scene.add_child(bullet)
 		bullet.global_position = global_position
 		bullet.rotation = start_angle + (spread_step * i)
-
+		bullet.dano = weapon_data.base_damage
+		
 	if !weapon_data.infinite_ammo:
 		municao_atual = max(municao_atual - 1, 0)
 	print(municao_atual)
