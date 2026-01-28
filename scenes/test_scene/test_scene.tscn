@@ -74,7 +74,7 @@ scale = Vector2(42.758404, -89.53091)
 texture = SubResource("GradientTexture2D_brqnf")
 
 [node name="npc_da_run" parent="." instance=ExtResource("7_vrddd")]
-position = Vector2(-17, -40)
+position = Vector2(-23, -51)
 
 [node name="UIDialogo" parent="." instance=ExtResource("6_vrddd")]
 visible = false
@@ -84,7 +84,7 @@ offset_right = 29.0
 offset_bottom = 29.0
 
 [node name="npc_mercante" parent="." instance=ExtResource("8_ork3v")]
-position = Vector2(-20, -19)
+position = Vector2(-28, -12)
 
 [node name="craftador" parent="." instance=ExtResource("9_a0rq3")]
-position = Vector2(2, -17)
+position = Vector2(40, -13)

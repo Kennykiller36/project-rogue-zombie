@@ -5,8 +5,7 @@ extends CanvasLayer
 @onready var botao_sair = $Loja/BotaoSair
 
 var craft_items: Array[ItemData] = [
-	preload("res://entidades/items/consumiveis/medkit.tres"),
-	preload("res://entidades/items/consumiveis/pente.tres")
+	preload("res://entidades/items/mod_de_arma/gatilho_leve.tres")
 ]
 
 var jogador: Player

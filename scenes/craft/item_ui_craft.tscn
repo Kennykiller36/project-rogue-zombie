@@ -28,4 +28,4 @@ text = "Price: 0"
 
 [node name="BuyButton" type="Button" parent="."]
 layout_mode = 2
-text = "Comprar"
+text = "Craftar"

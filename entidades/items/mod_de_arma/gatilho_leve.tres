@@ -9,5 +9,6 @@ multiplier = 0.2
 name = "GatilhoLeve"
 description = "Aumenta a cadencia da arma por 30"
 price = 100
+craft_cost = 300
 icon = ExtResource("1_fh0up")
 type = "WeaponMod"

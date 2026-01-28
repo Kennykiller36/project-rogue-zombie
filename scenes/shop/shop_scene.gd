@@ -6,7 +6,7 @@ extends CanvasLayer
 
 var shop_items: Array[ItemData] = [
 	preload("res://entidades/items/consumiveis/medkit.tres"),
-	preload("res://entidades/items/mod_de_arma/gatilho_leve.tres")
+	preload("res://entidades/items/consumiveis/pente.tres")
 ]
 
 func _ready():
