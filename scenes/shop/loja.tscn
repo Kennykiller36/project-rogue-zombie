@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c70avmf604vod" path="res://scenes/shop/shop_scene.gd" id="1_s4anx"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" groups=["menu"]]
 script = ExtResource("1_s4anx")
 
 [node name="Loja" type="Control" parent="."]

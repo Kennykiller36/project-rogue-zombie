@@ -77,6 +77,13 @@ func _process(delta: float) -> void:
 	mirar()
 	fire_timer -= delta
 
-	if Input.is_action_pressed("fire") and fire_timer <= 0:
+	if Input.is_action_pressed("fire") and fire_timer <= 0 and not is_menu_open():
 		atira()
 		fire_timer = weapon_data.fire_rate
+
+func is_menu_open() -> bool:
+	var menus = get_tree().get_nodes_in_group("menu")
+	for menu in menus:
+		if menu.visible:
+			return true
+	return false

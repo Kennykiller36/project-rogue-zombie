@@ -24,6 +24,10 @@ GameData="*res://globals/game_data.gd"
 
 window/size/mode=3
 
+[global_group]
+
+menu=""
+
 [input]
 
 up={
