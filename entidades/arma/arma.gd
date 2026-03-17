@@ -67,6 +67,7 @@ func atira() -> void:
 		bullet.global_position = global_position
 		bullet.rotation = start_angle + (spread_step * i)
 		bullet.dano = weapon_data.base_damage
+		bullet.source_player = get_parent()
 		
 	if !weapon_data.infinite_ammo:
 		municao_atual = max(municao_atual - 1, 0)

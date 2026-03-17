@@ -1,9 +1,12 @@
 extends CharacterBody2D
 class_name Player
 
+signal points_changed(total_points: int)
+
 ## HUD
 @onready var barra_hp = $"CanvasHud/BarraDeHp"
 @onready var barra_habilidade = $"CanvasHud/BarraDeHabilidade"
+@onready var label_pontos: Label = $"CanvasHud/LabelPontos"
 
 ## Components
 @onready var componente_arma = $arma
@@ -17,6 +20,7 @@ var saude: int
 var carga_habilidade: int = 100
 var dinheiro_atual: int = 0
 var sucata_atual: int = 0
+var pontos_totais: int = 0
 
 ## Movimento
 var max_speed: float
@@ -36,6 +40,10 @@ func _ready() -> void:
 		barra_hp.init_health(saude)
 	else:
 		push_warning("BarraDeHp não encontrada")
+	if label_pontos:
+		label_pontos.text = str(pontos_totais)
+	if not points_changed.is_connected(_on_points_changed):
+		points_changed.connect(_on_points_changed)
 
 
 
@@ -52,6 +60,16 @@ func player_init() -> void:
 	componente_arma.setup_weapon(player_data.armaInicial)
 	dinheiro_atual = player_data.dinheiroInicial
 	sucata_atual = player_data.sucataInicial
+
+func add_points(amount: int) -> void:
+	if amount <= 0:
+		return
+	pontos_totais += amount
+	points_changed.emit(pontos_totais)
+
+func _on_points_changed(total_points: int) -> void:
+	if label_pontos:
+		label_pontos.text = str(total_points)
 
 func _physics_process(delta: float) -> void:
 	dir_input = Input.get_vector("left", "right", "up", "down")

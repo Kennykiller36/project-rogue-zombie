@@ -10,9 +10,14 @@ var speed: float
 @onready var sprite_component := $Sprite as Sprite2D
 
 
-func diminuir_vida(dano_recebido: int) -> void:
+func diminuir_vida(dano_recebido: int, killer: Node = null) -> void:
 	current_health -= dano_recebido
 	if current_health <= 0:
+		if killer and killer.has_method("add_points"):
+			var pontos := 0
+			if enemy_data:
+				pontos = enemy_data.pontos
+			killer.add_points(pontos)
 		queue_free()
 
 

@@ -9,4 +9,3 @@ vidamaxima = 100
 dano = 10
 sprite_texture = ExtResource("2_q24g3")
 velocidade = 20.0
-player = "Player"
