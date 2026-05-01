@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://o0t4nhk5iafk"]
+[gd_scene load_steps=6 format=3 uid="uid://o0t4nhk5iafk"]
 
 [ext_resource type="Script" uid="uid://grmbmm0mu15x" path="res://entidades/mercante/npc_mercador.gd" id="1_ub0pa"]
 [ext_resource type="Texture2D" uid="uid://dk8cy5t0xs3nx" path="res://sprites/personagens_principais/player.png" id="2_lfwyo"]
+[ext_resource type="Texture2D" uid="uid://5fi8w4u1jxy6" path="res://sprites/tiles/Interact.jpg" id="3_522ul"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 radius = 2.0
@@ -32,4 +33,11 @@ texture = ExtResource("2_lfwyo")
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_f2but")
 
+[node name="InteractPrompt" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-7, -18)
+scale = Vector2(0.013302331, 0.013302331)
+texture = ExtResource("3_522ul")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

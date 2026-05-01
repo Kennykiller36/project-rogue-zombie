@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://qf84jogtbtmc"]
+[gd_scene load_steps=6 format=3 uid="uid://qf84jogtbtmc"]
 
 [ext_resource type="Script" uid="uid://cd1lg3i4q6q21" path="res://entidades/npc_dialogo/npc_da_run.gd" id="1_x8b4i"]
 [ext_resource type="Texture2D" uid="uid://dk8cy5t0xs3nx" path="res://sprites/personagens_principais/player.png" id="2_xnr2q"]
+[ext_resource type="Texture2D" uid="uid://5fi8w4u1jxy6" path="res://sprites/tiles/Interact.jpg" id="3_xnr2q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 radius = 2.0
@@ -21,10 +22,10 @@ script = ExtResource("1_x8b4i")
 shape = SubResource("CircleShape2D_kqu6x")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
 texture_filter = 1
 position = Vector2(0, -6)
 texture = ExtResource("2_xnr2q")
-modulate = Color(1, 1, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="." groups=["npc"]]
 
@@ -32,4 +33,11 @@ modulate = Color(1, 1, 0, 1)
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_f2but")
 
+[node name="InteractPrompt" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-7, -18)
+scale = Vector2(0.013302331, 0.013302331)
+texture = ExtResource("3_xnr2q")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

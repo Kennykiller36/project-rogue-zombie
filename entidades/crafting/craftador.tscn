@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d08xssjfgylyg"]
+[gd_scene load_steps=6 format=3 uid="uid://d08xssjfgylyg"]
 
 [ext_resource type="Script" uid="uid://c0cffk6djdnor" path="res://entidades/crafting/craftador.gd" id="1_a6rt2"]
 [ext_resource type="Texture2D" uid="uid://c5y03v5tytg4p" path="res://icon.svg" id="2_a6rt2"]
+[ext_resource type="Texture2D" uid="uid://5fi8w4u1jxy6" path="res://sprites/tiles/Interact.jpg" id="3_cscqv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 radius = 2.0
@@ -33,4 +34,11 @@ texture = ExtResource("2_a6rt2")
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_f2but")
 
+[node name="InteractPrompt" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-7, -18)
+scale = Vector2(0.013302331, 0.013302331)
+texture = ExtResource("3_cscqv")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
