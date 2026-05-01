@@ -227,6 +227,13 @@ size_flags_vertical = 8
 text = "Pausar"
 vertical_alignment = 1
 
+[node name="InteractLabel" type="Label" parent="TabContainer/Controles/VBoxContainerLabelsControles"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Interagir"
+vertical_alignment = 1
+
 [node name="VBoxContainerKeyMapBtnControles" type="VBoxContainer" parent="TabContainer/Controles"]
 layout_mode = 1
 anchors_preset = 6
@@ -289,6 +296,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("2_2v3r4")
 action = "pause"
+metadata/_custom_type_script = "uid://dtr1sagv0h0j7"
+
+[node name="InputMapBtnInteract" type="Button" parent="TabContainer/Controles/VBoxContainerKeyMapBtnControles"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_2v3r4")
+action = "interact"
 metadata/_custom_type_script = "uid://dtr1sagv0h0j7"
 
 [node name="Creditos" type="TabBar" parent="TabContainer"]

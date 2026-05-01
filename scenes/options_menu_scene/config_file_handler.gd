@@ -10,7 +10,8 @@ const GAME_ACTIONS := [
 	"left",
 	"right",
 	"usarHabilidade",
-	"pause"
+	"pause",
+	"interact"
 ]
 
 
@@ -34,6 +35,7 @@ func _ready():
 		config.set_value("keybinding", "right", "D")
 		config.set_value("keybinding", "usarHabilidade", "Space")
 		config.set_value("keybinding", "pause", "Esc")
+		config.set_value("keybinding", "interact", "E")
 
 		config.set_value("video", "resolution_index", 0)
 		config.set_value("video", "window_mode_index", 0)
