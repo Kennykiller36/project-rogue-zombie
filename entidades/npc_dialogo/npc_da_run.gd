@@ -39,12 +39,16 @@ func dialogar() -> void:
 
 		escolhas_dialog.escolhas = [
 			"Me cure",
-			"Me de dano"
+			"Me de dano",
+			"Fechar"
+
 		]
 
 		effects = [
 			increase_health,
-			decrease_health
+			decrease_health,
+			close_dialogue
+
 		]
 
 		escolhas_dialog.visible = true
@@ -76,3 +80,6 @@ func decrease_health() -> void:
 	if player and player.has_method("diminuir_vida"):
 		player.diminuir_vida(10)
 		print("Player health decreased")
+		
+func close_dialogue() -> void:
+			dialog_open = false
